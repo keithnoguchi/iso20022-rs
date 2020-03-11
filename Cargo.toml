@@ -1,13 +1,13 @@
 [package]
 name = "iso20022"
-version = "0.1.5"
+version = "0.1.6"
 authors = ["Keith Noguchi <keith.noguchi@gmail.com>"]
 edition = "2018"
 license = "Apache-2.0/MIT"
 repository = "https://github.com/keithnoguchi/iso20022-rs"
 homepage = "https://github.com/keithnoguchi/iso20022-rs"
 documentation = "https://docs.rs/iso20022"
-description = "ISO 20022 Universal Financial Industry Message Scheme in Rust"
+description = "ISO 20022 Universal Financial Industry Messages in Rust"
 keywords = ["financial", "iso20022", "protobuf"]
 categories = ["encoding", "data-structures"]
 readme = "README.md"
