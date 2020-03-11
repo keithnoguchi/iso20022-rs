@@ -1,6 +1,6 @@
 # iso20022
 
-[ISO 20022] Universal Financial Message Scheme in Rust.
+[ISO 20022] Universal Financial Industry Message Scheme in Rust.
 
 [![drone]](https://cloud.drone.io/keithnoguchi/iso20022-rs)
 [![docs]](https://docs.rs/crate/iso20022/)
@@ -8,7 +8,7 @@
 [drone]: https://cloud.drone.io/api/badges/keithnoguchi/iso20022-rs/status.svg
 [docs]: https://docs.rs/iso20022/badge.svg
 
-Here is the list of currently supported message schemes:
+Here is the list of the currently supported message schemes:
 
 - [Business Application Header]
   - [head.001.001.02] BusinessApplicationHeaderV02
