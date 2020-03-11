@@ -2,6 +2,8 @@
 //!
 //! [iso 20022]: https://www.iso20022.org/
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Re-run only when this file is changed.
+    println!("cargo:rerun-if-changed=build.rs");
     Ok(tonic_build::configure()
         .build_client(false)
         .build_server(false)

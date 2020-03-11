@@ -67,7 +67,7 @@ dependencies = [
 
 [[package]]
 name = "iso20022"
-version = "0.1.0"
+version = "0.1.2"
 dependencies = [
  "prost",
  "tonic-build",
