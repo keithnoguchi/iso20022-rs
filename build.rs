@@ -7,7 +7,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(tonic_build::configure()
         .build_client(false)
         .build_server(false)
-        .out_dir("./src/")
+        // enable below only when we need to update files.
+        //.out_dir("./src/")
         .compile(
             &[
                 "proto/head.001.001.02.proto",
