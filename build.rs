@@ -16,6 +16,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "proto/head.001.001.02.proto",
                 "proto/pain.001.001.10.proto",
                 "proto/pain.002.001.11.proto",
+                "proto/pain.013.001.08.proto",
+                "proto/pain.014.001.08.proto",
             ],
             &["proto"],
         )?)
