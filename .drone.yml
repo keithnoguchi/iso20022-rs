@@ -1,0 +1,49 @@
+kind: pipeline
+type: docker
+name: default
+steps:
+  - name: format
+    image: archlinux/base
+    commands:
+      - pacman -Sy --noconfirm rustup
+      - rustup update stable
+      - rustup default stable
+      - rustup component add rustfmt
+      - cargo fmt
+  - name: lint
+    image: archlinux/base
+    commands:
+      - pacman -Sy --noconfirm gcc pkgconf rustup protobuf
+      - rustup update stable
+      - rustup default stable
+      - rustup component add clippy
+      - cargo clippy
+  - name: document
+    image: archlinux/base
+    commands:
+      - pacman -Sy --noconfirm gcc pkgconf rustup protobuf
+      - rustup update stable
+      - rustup default stable
+      - cargo doc --all
+  - name: test
+    image: archlinux/base
+    commands:
+      - pacman -Sy --noconfirm gcc pkgconf rustup protobuf
+      - rustup update stable
+      - rustup default stable
+      - cargo test
+    depends_on:
+      - format
+      - lint
+      - document
+  - name: release-test
+    image: archlinux/base
+    commands:
+      - pacman -Sy --noconfirm gcc pkgconf rustup protobuf
+      - rustup update stable
+      - rustup default stable
+      - cargo test --release
+    depends_on:
+      - format
+      - lint
+      - document

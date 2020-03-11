@@ -1,0 +1,261 @@
+syntax = "proto2";
+package head_001_001_02;
+
+message UnspecifiedType
+{
+	required string baseObjectType = 1;
+	required bytes object = 2;
+}
+
+message ClearingSystemIdentification2Choice
+{
+	optional string Cd = 1;
+	optional string Prtry = 2;
+}
+
+message ClearingSystemMemberIdentification2
+{
+	optional ClearingSystemIdentification2Choice ClrSysId = 1;
+	required string MmbId = 2;
+}
+
+message DateAndPlaceOfBirth1
+{
+	required int32 BirthDt = 1;
+	required string CityOfBirth = 2;
+	required string CtryOfBirth = 3;
+	optional string PrvcOfBirth = 4;
+}
+
+message FinancialIdentificationSchemeName1Choice
+{
+	optional string Cd = 1;
+	optional string Prtry = 2;
+}
+
+message GenericFinancialIdentification1
+{
+	required string Id = 1;
+	optional string Issr = 2;
+	optional FinancialIdentificationSchemeName1Choice SchmeNm = 3;
+}
+
+message GenericIdentification30
+{
+	required string Id = 1;
+	required string Issr = 2;
+	optional string SchmeNm = 3;
+}
+
+message ImplementationSpecification1
+{
+	required string Id = 1;
+	required string Regy = 2;
+}
+
+message OrganisationIdentificationSchemeName1Choice
+{
+	optional string Cd = 1;
+	optional string Prtry = 2;
+}
+
+message OtherContact1
+{
+	required string ChanlTp = 1;
+	optional string Id = 2;
+}
+
+message PersonIdentificationSchemeName1Choice
+{
+	optional string Cd = 1;
+	optional string Prtry = 2;
+}
+
+message SignatureEnvelope
+{
+}
+
+message AddressType3Choice
+{
+	enum AddressType2Code
+	{
+		AddressType2Code_ADDR = 1;
+		AddressType2Code_BIZZ = 2;
+		AddressType2Code_DLVY = 3;
+		AddressType2Code_HOME = 4;
+		AddressType2Code_MLTO = 5;
+		AddressType2Code_PBOX = 6;
+	}
+	optional AddressType2Code Cd = 1;
+	optional GenericIdentification30 Prtry = 2;
+}
+
+message Contact4
+{
+	optional string Dept = 1;
+	optional string EmailAdr = 2;
+	optional string EmailPurp = 3;
+	optional string FaxNb = 4;
+	optional string JobTitl = 5;
+	optional string MobNb = 6;
+	optional string Nm = 7;
+	enum NamePrefix2Code
+	{
+		NamePrefix2Code_DOCT = 1;
+		NamePrefix2Code_MADM = 2;
+		NamePrefix2Code_MIKS = 3;
+		NamePrefix2Code_MISS = 4;
+		NamePrefix2Code_MIST = 5;
+	}
+	optional NamePrefix2Code NmPrfx = 8;
+	repeated OtherContact1 Othr = 9;
+	optional string PhneNb = 10;
+	enum PreferredContactMethod1Code
+	{
+		PreferredContactMethod1Code_CELL = 1;
+		PreferredContactMethod1Code_FAXX = 2;
+		PreferredContactMethod1Code_LETT = 3;
+		PreferredContactMethod1Code_MAIL = 4;
+		PreferredContactMethod1Code_PHON = 5;
+	}
+	optional PreferredContactMethod1Code PrefrdMtd = 11;
+	optional string Rspnsblty = 12;
+}
+
+message GenericOrganisationIdentification1
+{
+	required string Id = 1;
+	optional string Issr = 2;
+	optional OrganisationIdentificationSchemeName1Choice SchmeNm = 3;
+}
+
+message GenericPersonIdentification1
+{
+	required string Id = 1;
+	optional string Issr = 2;
+	optional PersonIdentificationSchemeName1Choice SchmeNm = 3;
+}
+
+message OrganisationIdentification29
+{
+	optional string AnyBIC = 1;
+	optional string LEI = 2;
+	repeated GenericOrganisationIdentification1 Othr = 3;
+}
+
+message PersonIdentification13
+{
+	optional DateAndPlaceOfBirth1 DtAndPlcOfBirth = 1;
+	repeated GenericPersonIdentification1 Othr = 2;
+}
+
+message PostalAddress24
+{
+	repeated string AdrLine = 1;
+	optional AddressType3Choice AdrTp = 2;
+	optional string BldgNb = 3;
+	optional string BldgNm = 4;
+	optional string Ctry = 5;
+	optional string CtrySubDvsn = 6;
+	optional string Dept = 7;
+	optional string DstrctNm = 8;
+	optional string Flr = 9;
+	optional string PstBx = 10;
+	optional string PstCd = 11;
+	optional string Room = 12;
+	optional string StrtNm = 13;
+	optional string SubDept = 14;
+	optional string TwnLctnNm = 15;
+	optional string TwnNm = 16;
+}
+
+message BranchData3
+{
+	optional string Id = 1;
+	optional string LEI = 2;
+	optional string Nm = 3;
+	optional PostalAddress24 PstlAdr = 4;
+}
+
+message FinancialInstitutionIdentification18
+{
+	optional string BICFI = 1;
+	optional ClearingSystemMemberIdentification2 ClrSysMmbId = 2;
+	optional string LEI = 3;
+	optional string Nm = 4;
+	optional GenericFinancialIdentification1 Othr = 5;
+	optional PostalAddress24 PstlAdr = 6;
+}
+
+message Party38Choice
+{
+	optional OrganisationIdentification29 OrgId = 1;
+	optional PersonIdentification13 PrvtId = 2;
+}
+
+message PartyIdentification135
+{
+	optional Contact4 CtctDtls = 1;
+	optional string CtryOfRes = 2;
+	optional Party38Choice Id = 3;
+	optional string Nm = 4;
+	optional PostalAddress24 PstlAdr = 5;
+}
+
+message BranchAndFinancialInstitutionIdentification6
+{
+	optional BranchData3 BrnchId = 1;
+	required FinancialInstitutionIdentification18 FinInstnId = 2;
+}
+
+message Party44Choice
+{
+	optional BranchAndFinancialInstitutionIdentification6 FIId = 1;
+	optional PartyIdentification135 OrgId = 2;
+}
+
+message BusinessApplicationHeader5
+{
+	required string BizMsgIdr = 1;
+	optional string BizSvc = 2;
+	optional string CharSet = 3;
+	enum CopyDuplicate1Code
+	{
+		CopyDuplicate1Code_CODU = 1;
+		CopyDuplicate1Code_COPY = 2;
+		CopyDuplicate1Code_DUPL = 3;
+	}
+	optional CopyDuplicate1Code CpyDplct = 4;
+	required int64 CreDt = 5;
+	required Party44Choice Fr = 6;
+	required string MsgDefIdr = 7;
+	optional string Prty = 8;
+	optional bool PssblDplct = 9;
+	optional SignatureEnvelope Sgntr = 10;
+	required Party44Choice To = 11;
+}
+
+message BusinessApplicationHeaderV02
+{
+	required string BizMsgIdr = 1;
+	optional int64 BizPrcgDt = 2;
+	optional string BizSvc = 3;
+	optional string CharSet = 4;
+	enum CopyDuplicate1Code
+	{
+		CopyDuplicate1Code_CODU = 1;
+		CopyDuplicate1Code_COPY = 2;
+		CopyDuplicate1Code_DUPL = 3;
+	}
+	optional CopyDuplicate1Code CpyDplct = 5;
+	required int64 CreDt = 6;
+	required Party44Choice Fr = 7;
+	optional ImplementationSpecification1 MktPrctc = 8;
+	required string MsgDefIdr = 9;
+	optional string Prty = 10;
+	optional bool PssblDplct = 11;
+	repeated BusinessApplicationHeader5 Rltd = 12;
+	optional SignatureEnvelope Sgntr = 13;
+	required Party44Choice To = 14;
+}
+
