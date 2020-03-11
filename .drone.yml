@@ -25,6 +25,28 @@ steps:
       - rustup update stable
       - rustup default stable
       - cargo doc --all
+  - name: build
+    image: archlinux/base
+    commands:
+      - pacman -Sy --noconfirm gcc pkgconf rustup protobuf
+      - rustup update stable
+      - rustup default stable
+      - cargo build
+    depends_on:
+      - format
+      - lint
+      - document
+  - name: build-release
+    image: archlinux/base
+    commands:
+      - pacman -Sy --noconfirm gcc pkgconf rustup protobuf
+      - rustup update stable
+      - rustup default stable
+      - cargo build --release
+    depends_on:
+      - format
+      - lint
+      - document
   - name: test
     image: archlinux/base
     commands:
@@ -33,10 +55,9 @@ steps:
       - rustup default stable
       - cargo test
     depends_on:
-      - format
-      - lint
-      - document
-  - name: release-test
+      - build
+      - build-release
+  - name: test-release
     image: archlinux/base
     commands:
       - pacman -Sy --noconfirm gcc pkgconf rustup protobuf
@@ -44,6 +65,5 @@ steps:
       - rustup default stable
       - cargo test --release
     depends_on:
-      - format
-      - lint
-      - document
+      - build
+      - build-release

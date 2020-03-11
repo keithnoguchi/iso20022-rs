@@ -4,6 +4,9 @@
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Re-run only when this file is changed.
     println!("cargo:rerun-if-changed=build.rs");
+    // Install rustfmt which is used by tonic_build.
+    std::process::Command::new("rustup").args(&["component", "add", "rustfmt"])
+        .status().unwrap();
     Ok(tonic_build::configure()
         .build_client(false)
         .build_server(false)
