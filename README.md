@@ -3,9 +3,11 @@
 [ISO 20022] Universal Financial Industry Messages in Rust.
 
 [![drone]](https://cloud.drone.io/keithnoguchi/iso20022-rs)
-[![docs]](https://docs.rs/iso20022/)
+[![crate]](https://lib.rs/iso20022)
+[![docs]](https://docs.rs/iso20022)
 
 [drone]: https://cloud.drone.io/api/badges/keithnoguchi/iso20022-rs/status.svg
+[crate]: https://img.shields.io/crates/v/iso20022.svg
 [docs]: https://docs.rs/iso20022/badge.svg
 
 Here is the list of the currently supported messages:
