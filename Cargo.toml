@@ -1,6 +1,6 @@
 [package]
 name = "iso20022"
-version = "0.1.8"
+version = "0.1.9"
 authors = ["Keith Noguchi <keith.noguchi@gmail.com>"]
 edition = "2018"
 license = "Apache-2.0/MIT"

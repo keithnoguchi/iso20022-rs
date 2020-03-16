@@ -17,7 +17,9 @@ Here is the list of the currently supported messages:
 - [Payments Messages]
   - [pain.001.001.10] CustomerCreditTransferInitiationV10 message
   - [pain.002.001.11] CustomerPaymentStatusReportV11 message
-  - [pain.013.001.08] CreditorPaymentActivationRequestV8 message
+  - [pain.007.001.10] CustomerPaymentReversalV10 message
+  - [pain.008.001.09] CustomerDirectDebitInitiationV09 message
+  - [pain.013.001.08] CreditorPaymentActivationRequestV08 message
   - [pain.014.001.08] CreditorPaymentActivationRequestStatusReportV08 message
 
 [iso 20022]: https://www.iso20022.org/
@@ -26,5 +28,7 @@ Here is the list of the currently supported messages:
 [head.001.001.02]: proto/head.001.001.02.proto
 [pain.001.001.10]: proto/pain.001.001.10.proto
 [pain.002.001.11]: proto/pain.002.001.11.proto
+[pain.007.001.10]: proto/pain.007.001.10.proto
+[pain.008.001.09]: proto/pain.008.001.09.proto
 [pain.013.001.08]: proto/pain.013.001.08.proto
 [pain.014.001.08]: proto/pain.014.001.08.proto
